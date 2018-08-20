@@ -11,6 +11,14 @@
 
 Gatsby plugin for preparing zopfli-compressed versions of assets.
 
+```bash
+/webpack-runtime-cde5506958f1afc4d89e.js
+```
+becomes
+```bash
+/webpack-runtime-cde5506958f1afc4d89e.js.gz
+```
+
 ## Installation
 
 With npm:
