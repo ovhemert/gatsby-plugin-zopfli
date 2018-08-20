@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-zopfli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gatsby plugin for preparing zopfli-compressed versions of assets",
   "main": "index.js",
   "scripts": {
