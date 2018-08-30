@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli.svg?branch=master)](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli)
 [![Dependencies](https://img.shields.io/david/ovhemert/gatsby-plugin-zopfli.svg)](https://david-dm.org/ovhemert/gatsby-plugin-zopfli)
+[![Dependencies](https://img.shields.io/david/ovhemert/gatsby-plugin-zopfli.svg)](https://david-dm.org/ovhemert/gatsby-plugin-zopfli)
 [![Known Vulnerabilities](https://snyk.io/test/npm/gatsby-plugin-zopfli/badge.svg)](https://snyk.io/test/npm/gatsby-plugin-zopfli)
 [![Coverage Status](https://coveralls.io/repos/github/ovhemert/gatsby-plugin-zopfli/badge.svg?branch=master)](https://coveralls.io/github/ovhemert/gatsby-plugin-zopfli?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ovhemert/gatsby-plugin-zopfli.svg)](https://greenkeeper.io/)
