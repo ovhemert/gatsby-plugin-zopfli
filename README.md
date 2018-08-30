@@ -1,6 +1,7 @@
 # gatsby-plugin-zopfli
 
-[![Build Status](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli.svg?branch=master)](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli)
+[![Travis](https://img.shields.io/travis/com/ovhemert/gatsby-plugin-zopfli.svg?branch=master&logo=travis)](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli)
+[![AppVeyor](https://img.shields.io/appveyor/ci/ovhemert/gatsby-plugin-zopfli.svg?logo=appveyor)](https://ci.appveyor.com/project/ovhemert/gatsby-plugin-zopfli)
 [![Dependencies](https://img.shields.io/david/ovhemert/gatsby-plugin-zopfli.svg)](https://david-dm.org/ovhemert/gatsby-plugin-zopfli)
 [![Dependencies](https://img.shields.io/david/ovhemert/gatsby-plugin-zopfli.svg)](https://david-dm.org/ovhemert/gatsby-plugin-zopfli)
 [![Known Vulnerabilities](https://snyk.io/test/npm/gatsby-plugin-zopfli/badge.svg)](https://snyk.io/test/npm/gatsby-plugin-zopfli)
