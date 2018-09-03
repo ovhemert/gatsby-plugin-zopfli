@@ -11,7 +11,13 @@
 [![npm](https://img.shields.io/npm/dm/gatsby-plugin-zopfli.svg)](https://www.npmjs.com/package/gatsby-plugin-zopfli)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
-Gatsby plugin for preparing zopfli-compressed versions of assets.
+Gatsby plugin for preparing zopfli-compressed gzip versions of assets.
+
+The Zopfli Compression Algorithm is a new, open sourced data compression library. It creates a smaller output size, typically 3–8% smaller compared to zlib at maximum compression
+
+The compression method is best suited for static web content, files that don't change that often and that generate a lot of traffic. That's because Zopfli uses two to three times more CPU time than zlib at maximum quality.
+
+Files compressed with Zopfli can be decompressed with existing methods on the client and there will be no performance penalty at this end.
 
 ```bash
 /webpack-runtime-cde5506958f1afc4d89e.js
