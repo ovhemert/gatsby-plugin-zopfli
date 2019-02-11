@@ -2,13 +2,8 @@
 
 [![Travis](https://img.shields.io/travis/com/ovhemert/gatsby-plugin-zopfli.svg?branch=master&logo=travis)](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli)
 [![AppVeyor](https://img.shields.io/appveyor/ci/ovhemert/gatsby-plugin-zopfli.svg?logo=appveyor)](https://ci.appveyor.com/project/ovhemert/gatsby-plugin-zopfli)
-[![Dependencies](https://img.shields.io/david/ovhemert/gatsby-plugin-zopfli.svg)](https://david-dm.org/ovhemert/gatsby-plugin-zopfli)
-[![Dependencies](https://img.shields.io/david/ovhemert/gatsby-plugin-zopfli.svg)](https://david-dm.org/ovhemert/gatsby-plugin-zopfli)
 [![Known Vulnerabilities](https://snyk.io/test/npm/gatsby-plugin-zopfli/badge.svg)](https://snyk.io/test/npm/gatsby-plugin-zopfli)
-[![Coverage Status](https://coveralls.io/repos/github/ovhemert/gatsby-plugin-zopfli/badge.svg?branch=master)](https://coveralls.io/github/ovhemert/gatsby-plugin-zopfli?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ovhemert/gatsby-plugin-zopfli.svg)](https://greenkeeper.io/)
-[![npm](https://img.shields.io/npm/v/gatsby-plugin-zopfli.svg)](https://www.npmjs.com/package/gatsby-plugin-zopfli)
-[![npm](https://img.shields.io/npm/dm/gatsby-plugin-zopfli.svg)](https://www.npmjs.com/package/gatsby-plugin-zopfli)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 Gatsby plugin for preparing zopfli-compressed gzip versions of assets.
@@ -57,11 +52,8 @@ module.exports = {
 
 ## Maintainers
 
-**Osmond van Hemert**
-
-[![Github](https://img.shields.io/badge/style-github-333333.svg?logo=github&logoColor=white&label=)](https://github.com/ovhemert)
-[![NPM](https://img.shields.io/badge/style-npm-333333.svg?logo=npm&logoColor=&label=)](https://www.npmjs.com/~ovhemert)
-[![Twitter](https://img.shields.io/badge/style-twitter-333333.svg?logo=twitter&logoColor=&label=)](https://twitter.com/osmondvanhemert)
+Osmond van Hemert
+[![Github](https://img.shields.io/badge/style-github-333333.svg?logo=github&logoColor=white&label=)](https://github.com/ovhemert/about)
 [![Web](https://img.shields.io/badge/style-website-333333.svg?logoColor=white&label=&logo=diaspora)](https://www.osmondvanhemert.nl)
 
 ## Contributing
