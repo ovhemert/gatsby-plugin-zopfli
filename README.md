@@ -59,7 +59,7 @@ Osmond van Hemert
 
 ## Contributing
 
-See the [CONTRIBUTING.md](./docs/CONTRIBUTING.md) file for details.
+See the [CONTRIBUTING](./docs/CONTRIBUTING.md) file for details.
 
 ## License
 
