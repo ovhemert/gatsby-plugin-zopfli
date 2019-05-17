@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/ovhemert/gatsby-plugin-zopfli#readme",
   "dependencies": {
-    "@gfx/zopfli": "^1.0.10"
+    "@gfx/zopfli": "^1.0.12"
   },
   "devDependencies": {
     "standard": "^12.0.0"
