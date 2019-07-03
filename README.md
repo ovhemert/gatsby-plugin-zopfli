@@ -1,7 +1,6 @@
 # gatsby-plugin-zopfli
 
 [![Travis](https://img.shields.io/travis/com/ovhemert/gatsby-plugin-zopfli.svg?branch=master&logo=travis)](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli)
-[![AppVeyor](https://img.shields.io/appveyor/ci/ovhemert/gatsby-plugin-zopfli.svg?logo=appveyor)](https://ci.appveyor.com/project/ovhemert/gatsby-plugin-zopfli)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b2619c09ca94862bf349f40eb913466)](https://www.codacy.com/app/ovhemert/gatsby-plugin-zopfli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ovhemert/gatsby-plugin-zopfli&amp;utm_campaign=Badge_Grade)
 [![Known Vulnerabilities](https://snyk.io/test/npm/gatsby-plugin-zopfli/badge.svg)](https://snyk.io/test/npm/gatsby-plugin-zopfli)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ovhemert/gatsby-plugin-zopfli.svg)](https://greenkeeper.io/)
