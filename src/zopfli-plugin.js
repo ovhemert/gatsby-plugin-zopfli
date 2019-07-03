@@ -1,39 +1,24 @@
 'use strict'
 
 const fs = require('fs')
+const glob = require('glob')
+const mkdirp = require('mkdirp')
 const path = require('path')
 const util = require('util')
 const zopfli = require('@gfx/zopfli')
 
-let assetsCompress = {}
-
-class WebpackPlugin {
-  constructor (options) {
-    this.options = options
-  }
-  afterOptimizeAssets (assets) {
-    Object.keys(assets).forEach(file => {
-      if (file.endsWith('.css') || file.endsWith('.js')) {
-        assetsCompress[`/${file}`] = {}
-      }
-    })
-  }
-  afterPlugins (compiler) {
-    compiler.hooks.thisCompilation.tap('PluginZopfli', this.thisCompilation.bind(this))
-  }
-  apply (compiler) {
-    compiler.hooks.afterPlugins.tap('PluginZopfli', this.afterPlugins.bind(this))
-  }
-  thisCompilation (compilation) {
-    compilation.hooks.afterOptimizeAssets.tap('PluginZopfli', this.afterOptimizeAssets.bind(this))
-  }
+const defaultOptions = {
+  extensions: ['css', 'js'],
+  path: ''
 }
+
+const globAsync = util.promisify(glob)
+const mkdirpAsync = util.promisify(mkdirp)
+const readFileAsync = util.promisify(fs.readFile)
+const writeFileAsync = util.promisify(fs.writeFile)
 
 async function compressFile (file, pluginOptions = {}) {
   // zopfli-gzip the asset to a new file with the .gz extension
-  const readFileAsync = util.promisify(fs.readFile)
-  const writeFileAsync = util.promisify(fs.writeFile)
-
   const fileBasePath = path.join(process.cwd(), 'public')
   const srcFileName = path.join(fileBasePath, file)
   const content = await readFileAsync(srcFileName)
@@ -41,22 +26,22 @@ async function compressFile (file, pluginOptions = {}) {
 
   const destFilePath = (pluginOptions.path) ? path.join(fileBasePath, pluginOptions.path) : fileBasePath
   const destFileName = path.join(destFilePath, file) + '.gz'
+  const destFileDirname = path.dirname(destFileName)
 
-  if (!fs.existsSync(destFilePath)) {
-    const mkdirAsync = util.promisify(fs.mkdir)
-    await mkdirAsync(destFilePath)
-  }
-
+  await mkdirpAsync(destFileDirname)
   await writeFileAsync(destFileName, compressed)
 }
 
-function onPostBuild (args, pluginOptions) {
-  // after asset files have been generated, compress them
-  const compress = Object.keys(assetsCompress).map(file => {
+async function onPostBuild (args, pluginOptions) {
+  const options = { ...defaultOptions, ...pluginOptions }
+  const fileBasePath = path.join(process.cwd(), 'public')
+  const pattern = `**/*.{${options.extensions.join(',')}}`
+
+  const files = await globAsync(pattern, { cwd: fileBasePath, ignore: '**/*.gz' })
+  const compress = files.map(file => {
     return compressFile(file, pluginOptions)
   })
   return Promise.all(compress)
 }
 
-module.exports.WebpackPlugin = WebpackPlugin
-module.exports.onPostBuild = onPostBuild
+exports.onPostBuild = onPostBuild

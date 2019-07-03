@@ -55,6 +55,36 @@ module.exports = {
 }
 ```
 
+By default, only `.css` and `.js` files are compressed, but you can override this with the `extensions` option.
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-zopfli',
+      options: {
+        extensions: ['css', 'html', 'js', 'svg']
+      }
+    }
+  ]
+}
+```
+
+You can even place all the zopfli-compressed files in a dedicated directory (ex. `public/zopfli`):
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-zopfli',
+      options: {
+        path: 'zopfli'
+      }
+    }
+  ]
+}
+```
+
 ## Maintainers
 
 Osmond van Hemert
