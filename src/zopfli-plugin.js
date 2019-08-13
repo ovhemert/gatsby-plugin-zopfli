@@ -13,13 +13,13 @@ const defaultOptions = {
 
 const globAsync = util.promisify(glob)
 
-async function onPostBuild(args, pluginOptions) {
-  const options = {...defaultOptions, ...pluginOptions}
+async function onPostBuild (args, pluginOptions) {
+  const options = { ...defaultOptions, ...pluginOptions }
   const fileBasePath = path.join(process.cwd(), 'public')
   const patternExt = (options.extensions.length > 1) ? `{${options.extensions.join(',')}}` : options.extensions[0]
   const pattern = `**/*.${patternExt}`
 
-  const files = await globAsync(pattern, {cwd: fileBasePath, ignore: '**/*.gz', nodir: true})
+  const files = await globAsync(pattern, { cwd: fileBasePath, ignore: '**/*.gz', nodir: true })
   if (!options.parallel) {
     const compress = files.map(file => {
       return compressFile(file, pluginOptions)
