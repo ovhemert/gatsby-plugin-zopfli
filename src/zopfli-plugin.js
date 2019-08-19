@@ -1,36 +1,17 @@
 'use strict'
 
-const fs = require('fs')
 const glob = require('glob')
-const mkdirp = require('mkdirp')
 const path = require('path')
 const util = require('util')
-const zopfli = require('@gfx/zopfli')
+const compressFile = require('./compressFile')
 
 const defaultOptions = {
   extensions: ['css', 'js'],
-  path: ''
+  path: '',
+  parallel: false
 }
 
 const globAsync = util.promisify(glob)
-const mkdirpAsync = util.promisify(mkdirp)
-const readFileAsync = util.promisify(fs.readFile)
-const writeFileAsync = util.promisify(fs.writeFile)
-
-async function compressFile (file, pluginOptions = {}) {
-  // zopfli-gzip the asset to a new file with the .gz extension
-  const fileBasePath = path.join(process.cwd(), 'public')
-  const srcFileName = path.join(fileBasePath, file)
-  const content = await readFileAsync(srcFileName)
-  const compressed = await zopfli.gzipAsync(content, {})
-
-  const destFilePath = (pluginOptions.path) ? path.join(fileBasePath, pluginOptions.path) : fileBasePath
-  const destFileName = path.join(destFilePath, file) + '.gz'
-  const destFileDirname = path.dirname(destFileName)
-
-  await mkdirpAsync(destFileDirname)
-  await writeFileAsync(destFileName, compressed)
-}
 
 async function onPostBuild (args, pluginOptions) {
   const options = { ...defaultOptions, ...pluginOptions }
@@ -39,10 +20,22 @@ async function onPostBuild (args, pluginOptions) {
   const pattern = `**/*.${patternExt}`
 
   const files = await globAsync(pattern, { cwd: fileBasePath, ignore: '**/*.gz', nodir: true })
-  const compress = files.map(file => {
-    return compressFile(file, pluginOptions)
-  })
-  return Promise.all(compress)
+  if (!options.parallel) {
+    const compress = files.map(file => {
+      return compressFile(file, pluginOptions)
+    })
+    return Promise.all(compress)
+  } else {
+    const workerFarm = require('worker-farm')
+    const workers = workerFarm(require.resolve('./worker'))
+    const compress = files.map(file => {
+      return new Promise((resolve, reject) => {
+        workers(file, pluginOptions, err => err ? reject(err) : resolve())
+      })
+    })
+    await Promise.all(compress)
+    workerFarm.end(workers)
+  }
 }
 
 exports.onPostBuild = onPostBuild
