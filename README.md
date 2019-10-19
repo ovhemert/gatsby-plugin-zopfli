@@ -85,6 +85,39 @@ module.exports = {
 }
 ```
 
+To customize compression, you can add optional parameters to the zopfli library: ([see here for details on various options)](https://github.com/pierreinglebert/node-zopfli#options)
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-zopfli',
+      options: {
+        path: 'zopfli',
+        compression: {
+          numiterations: 25
+        }
+      }
+    }
+  ]
+}
+```
+
+For diagnostic information, you can enable verbose logging:
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-zopfli',
+      options: {
+        verbose: true
+      }
+    }
+  ]
+}
+```
+
 ## Maintainers
 
 Osmond van Hemert
