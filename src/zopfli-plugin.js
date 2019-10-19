@@ -26,8 +26,8 @@ async function onPostBuild({ reporter }, pluginOptions) {
   const activity = reporter.activityTimer('Zopfli compression')
   activity.start()
 
-  let totalCompressed = 0;
-  let totalSavings = 0;
+  let totalCompressed = 0
+  let totalSavings = 0
   const compress = files.map(file => {
     return new Promise((resolve, reject) => {
       compressFile(file, pluginOptions, (details, err) => {
@@ -54,13 +54,12 @@ async function onPostBuild({ reporter }, pluginOptions) {
 }
 
 // courtesy https://web.archive.org/web/20120507054320/http://codeaid.net/javascript/convert-size-in-bytes-to-human-readable-format-(javascript)
-const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
 const bytesToSize = (bytes) => {
-  if (bytes < 2) return `${bytes} Byte`;
-  const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-  return `${Math.round(bytes / Math.pow(1024, i), 2)} ${sizes[i]}`;
+  if (bytes < 2) return `${bytes} Byte`
+  const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
+  return `${Math.round(bytes / Math.pow(1024, i), 2)} ${sizes[i]}`
 }
 
 
 exports.onPostBuild = onPostBuild
-
