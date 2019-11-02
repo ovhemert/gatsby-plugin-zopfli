@@ -28,7 +28,7 @@ async function compressFile (file, pluginOptions = {}) {
     compressedSize: compressed.length
   }
 
-  return result;
+  return result
 }
 
 module.exports = function (file, options, callback) {
