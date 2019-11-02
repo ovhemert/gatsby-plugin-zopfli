@@ -9,7 +9,7 @@ const mkdirpAsync = util.promisify(mkdirp)
 const readFileAsync = util.promisify(fs.readFile)
 const writeFileAsync = util.promisify(fs.writeFile)
 
-async function compressFile(file, pluginOptions = {}) {
+async function compressFile (file, pluginOptions = {}) {
   // zopfli-gzip the asset to a new file with the .gz extension
   const fileBasePath = path.join(process.cwd(), 'public')
   const srcFileName = path.join(fileBasePath, file)
@@ -23,10 +23,12 @@ async function compressFile(file, pluginOptions = {}) {
   await mkdirpAsync(destFileDirname)
   await writeFileAsync(destFileName, compressed)
 
-  return {
+  const result = {
     originalSize: content.length,
     compressedSize: compressed.length
-  };
+  }
+
+  return result;
 }
 
 module.exports = function (file, options, callback) {
