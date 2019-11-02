@@ -1,7 +1,7 @@
 # gatsby-plugin-zopfli
 
 [![Travis](https://img.shields.io/travis/com/ovhemert/gatsby-plugin-zopfli.svg?branch=master&logo=travis)](https://travis-ci.com/ovhemert/gatsby-plugin-zopfli)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b2619c09ca94862bf349f40eb913466)](https://www.codacy.com/app/ovhemert/gatsby-plugin-zopfli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ovhemert/gatsby-plugin-zopfli&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b2619c09ca94862bf349f40eb913466)](https://www.codacy.com/app/ovhemert/gatsby-plugin-zopfli?utm_source=github.com&utm_medium=referral&utm_content=ovhemert/gatsby-plugin-zopfli&utm_campaign=Badge_Grade)
 [![Known Vulnerabilities](https://snyk.io/test/npm/gatsby-plugin-zopfli/badge.svg)](https://snyk.io/test/npm/gatsby-plugin-zopfli)
 [![Coverage Status](https://coveralls.io/repos/github/ovhemert/gatsby-plugin-zopfli/badge.svg)](https://coveralls.io/github/ovhemert/gatsby-plugin-zopfli)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ovhemert/gatsby-plugin-zopfli.svg)](https://greenkeeper.io/)
@@ -18,7 +18,9 @@ Files compressed with Zopfli can be decompressed with existing methods on the cl
 ```bash
 /webpack-runtime-cde5506958f1afc4d89e.js
 ```
+
 becomes
+
 ```bash
 /webpack-runtime-cde5506958f1afc4d89e.js.gz
 ```
@@ -49,10 +51,10 @@ In your `gatsby-config.js` file add:
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-zopfli'
+      resolve: "gatsby-plugin-zopfli"
     }
   ]
-}
+};
 ```
 
 By default, only `.css` and `.js` files are compressed, but you can override this with the `extensions` option.
@@ -61,13 +63,13 @@ By default, only `.css` and `.js` files are compressed, but you can override thi
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-zopfli',
+      resolve: "gatsby-plugin-zopfli",
       options: {
-        extensions: ['css', 'html', 'js', 'svg']
+        extensions: ["css", "html", "js", "svg"]
       }
     }
   ]
-}
+};
 ```
 
 You can even place all the zopfli-compressed files in a dedicated directory (ex. `public/zopfli`):
@@ -76,13 +78,13 @@ You can even place all the zopfli-compressed files in a dedicated directory (ex.
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-zopfli',
+      resolve: "gatsby-plugin-zopfli",
       options: {
-        path: 'zopfli'
+        path: "zopfli"
       }
     }
   ]
-}
+};
 ```
 
 To customize compression, you can add optional parameters to the zopfli library: ([see here for details on various options)](https://github.com/pierreinglebert/node-zopfli#options)
@@ -91,18 +93,16 @@ To customize compression, you can add optional parameters to the zopfli library:
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-zopfli',
-      zopfli: {
-        verbose: false,
-        verbose_more: false,
-        numiterations: 15,
-        blocksplitting: true,
-        blocksplittinglast: false,
-        blocksplittingmax: 15
+      resolve: "gatsby-plugin-zopfli",
+      options: {
+        path: "zopfli",
+        compression: {
+          numiterations: 25
+        }
       }
     }
   ]
-}
+};
 ```
 
 For diagnostic information, you can enable verbose logging:
@@ -111,11 +111,13 @@ For diagnostic information, you can enable verbose logging:
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-zopfli',
-      verbose: true
+      resolve: "gatsby-plugin-zopfli",
+      options: {
+        verbose: true
+      }
     }
   ]
-}
+};
 ```
 
 ## Maintainers
