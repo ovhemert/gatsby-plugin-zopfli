@@ -5,7 +5,6 @@ const path = require('path')
 const util = require('util')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
-const mkdirpAsync = util.promisify(mkdirp)
 const readFileAsync = util.promisify(fs.readFile)
 const writeFileAsync = util.promisify(fs.writeFile)
 
@@ -20,7 +19,7 @@ async function compressFile (file, pluginOptions = {}) {
   const destFileName = path.join(destFilePath, file) + '.gz'
   const destFileDirname = path.dirname(destFileName)
 
-  await mkdirpAsync(destFileDirname)
+  await mkdirp(destFileDirname)
   await writeFileAsync(destFileName, compressed)
 
   const result = {
