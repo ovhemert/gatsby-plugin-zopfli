@@ -27,7 +27,7 @@
   "dependencies": {
     "@gfx/zopfli": "^1.0.14",
     "glob": "^7.1.4",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.0",
     "worker-farm": "^1.7.0"
   },
   "devDependencies": {
