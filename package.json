@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "standard"
+    "test": "standard && tap test/*.test.js --coverage --100",
+    "test:debug": "standard && tap test/*.test.js --coverage --save-fixture",
+    "test:report": "standard && tap test/*.test.js --coverage  --coverage-report=html --100",
+    "posttest": "tap --coverage --coverage-report=lcovonly"
   },
   "keywords": [
     "compress",
@@ -25,12 +28,14 @@
   },
   "homepage": "https://github.com/ovhemert/gatsby-plugin-zopfli#readme",
   "dependencies": {
-    "@gfx/zopfli": "^1.0.14",
+    "@gfx/zopfli": "^1.0.15",
     "glob": "^7.1.6",
     "mkdirp": "^1.0.4",
-    "worker-farm": "^1.7.0"
+    "piscina": "^1.6.3"
   },
   "devDependencies": {
-    "standard": "^14.3.1"
+    "sinon": "^9.0.2",
+    "standard": "^14.3.4",
+    "tap": "^14.10.8"
   }
 }
