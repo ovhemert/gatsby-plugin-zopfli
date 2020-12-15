@@ -93,9 +93,7 @@ module.exports = {
       resolve: 'gatsby-plugin-zopfli',
       options: {
         path: 'zopfli',
-        compression: {
           numiterations: 25
-        }
       }
     }
   ]
