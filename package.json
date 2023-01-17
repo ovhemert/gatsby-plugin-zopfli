@@ -30,7 +30,7 @@
   "dependencies": {
     "@gfx/zopfli": "^1.0.15",
     "glob": "^8.0.3",
-    "mkdirp": "^1.0.4",
+    "mkdirp": "^2.0.0",
     "piscina": "^3.2.0"
   },
   "devDependencies": {
