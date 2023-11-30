@@ -29,7 +29,7 @@
   "homepage": "https://github.com/ovhemert/gatsby-plugin-zopfli#readme",
   "dependencies": {
     "@gfx/zopfli": "^1.0.15",
-    "glob": "^8.0.3",
+    "glob": "^9.0.0",
     "mkdirp": "^1.0.4",
     "piscina": "^3.2.0"
   },
